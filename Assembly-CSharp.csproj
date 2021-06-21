@@ -56,32 +56,34 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Design Pattern\Observer Pattern\Observer.cs" />
+    <Compile Include="Assets\Script\Design Pattern\Singleton Pattern\GameManager.cs" />
+    <Compile Include="Assets\Script\Design Pattern\Command Pattern\Command List.cs" />
+    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GameOptionState.cs" />
     <Compile Include="Assets\Script\Temp\TempPlayer.cs" />
+    <Compile Include="Assets\Script\Design Pattern\Factory, ObjectPool Pattern\Factory.cs" />
     <Compile Include="Assets\Script\Temp\Arrow.cs" />
+    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GamePlayBossState.cs" />
     <Compile Include="Assets\Script\Temp\Missile.cs" />
     <Compile Include="Assets\Script\Temp\InputData.cs" />
     <Compile Include="Assets\Script\Design Pattern\Command Pattern\Command.cs" />
+    <Compile Include="Assets\Script\Debri.cs" />
+    <Compile Include="Assets\Script\Bullet\Bul_Player.cs" />
     <Compile Include="Assets\Script\Temp\DataSaveAndLoad.cs" />
     <Compile Include="Assets\Script\Temp\WeaponManager.cs" />
+    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GameMenuState.cs" />
     <Compile Include="Assets\Script\Temp\IWeapon.cs" />
     <Compile Include="Assets\Script\Temp\Bullet.cs" />
-    <Compile Include="Assets\Script\Temp\BulletMove.cs" />
-    <Compile Include="Assets\Script\Temp\TextDisplayer.cs" />
-    <Compile Include="Assets\Script\Temp\InputManager.cs" />
-    <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\Design Pattern\Observer Pattern\Observer.cs" />
-    <Compile Include="Assets\Script\Design Pattern\Singleton Pattern\GameManager.cs" />
-    <Compile Include="Assets\Script\Design Pattern\State Pattern\State.cs" />
-    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GameOverState.cs" />
-    <Compile Include="Assets\Script\Design Pattern\Command Pattern\Command List.cs" />
-    <Compile Include="Assets\Script\Design Pattern\Factory Pattern\Factory.cs" />
     <Compile Include="Assets\Script\Design Pattern\Observer Pattern\Observer List.cs" />
-    <Compile Include="Assets\Script\Design Pattern\ObjectPool Pattern\ObjectPool.cs" />
-    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GameOptionState.cs" />
-    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GamePlayBossState.cs" />
+    <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\Design Pattern\Factory, ObjectPool Pattern\ObjectPool.cs" />
+    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GameOverState.cs" />
+    <Compile Include="Assets\Script\Temp\BulletMove.cs" />
+    <Compile Include="Assets\Script\Design Pattern\State Pattern\State.cs" />
+    <Compile Include="Assets\Script\Temp\TextDisplayer.cs" />
     <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GamePlayFieldState.cs" />
-    <Compile Include="Assets\Script\Design Pattern\State Pattern\GameState\GameMenuState.cs" />
-    <Compile Include="Assets\Script\Bullet\Bul_Player.cs" />
+    <Compile Include="Assets\Script\Temp\InputManager.cs" />
+    <Compile Include="Assets\Script\DisplayUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

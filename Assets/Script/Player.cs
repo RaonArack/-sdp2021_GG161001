@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    ObserverSubject observer;
-    CommandManager command;
+    public CommandManager command;
     Command cmd_Left, cmd_Right, cmd_Jump, cmd_JumpHold, cmd_Attack;
 
     [SerializeField] Factory bulletFactory;
@@ -20,18 +19,18 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
+        Debug.Log("플레이어 깨어남");
     }
 
     void Start()
     {
-        observer = new ObserverSubject();
-        observer.AddObserver(new ConcreteObserver1(gameObject));
-
         command = new CommandManager();
         command.SetCommand("Left", KeyCode.LeftArrow);
         command.SetCommand("Right", KeyCode.RightArrow);
         command.SetCommand("Jump", KeyCode.Z);
         command.SetCommand("Attack", KeyCode.X);
+
+        Debug.Log("조작키 Left :" + command.GetCommand("Left"));
 
         cmd_Left = new CommandLeft();
         cmd_Right = new CommandRight();
@@ -46,7 +45,9 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
+        faceDir = 1;
         transform.position = Vector3.zero;
+        RB.velocity = new Vector2(0, jumpForce);
     }
 
     void Update()
@@ -58,10 +59,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey(command.commandDic["Attack"])) { cmd_Attack.Execute(); }
         if (Input.GetKeyUp(command.commandDic["Attack"])) { cmd_Attack.Interrupt(); }
 
-        if (transform.position.x > 16f) { transform.Translate(-32f, 0, 0); }
-        if (transform.position.x < -16f) { transform.Translate(32f, 0, 0); }
-        if (transform.position.y > 12.5f) { transform.Translate(0, -25f, 0); }
-        if (transform.position.y < -12.5f) { transform.Translate(0, 25f, 0); }
+        if (transform.position.x > GameManager.Width / 2) { transform.Translate(-GameManager.Width, 0, 0); }
+        if (transform.position.x < -GameManager.Width / 2) { transform.Translate(GameManager.Width, 0, 0); }
+        if (transform.position.y > GameManager.Height / 2) { transform.Translate(0, -GameManager.Height, 0); }
+        if (transform.position.y < -GameManager.Height / 2) { transform.Translate(0, GameManager.Height, 0); }
     }
 
     public void Shot()

@@ -1,19 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ConcreteObserver1 : Observer
+public class Obs_UICommandChange : Observer
 {
-    GameObject obj;
 
-    // 생성자를 통해 객체 전달
-    public ConcreteObserver1(GameObject obj)
+    DisplayUI displayUI;
+    CommandManager command;
+
+    public Obs_UICommandChange(DisplayUI displayUI)
     {
-        this.obj = obj;
+        this.displayUI = displayUI;
+        command = GameManager.Instance().player.command;
     }
 
-    // 대상타입의 클래스에서 이 메소드를 실행시킴
     public override void OnNotify()
     {
+        Debug.Log("키변경 옵저버 작동됨");
+        displayUI.leftKey.text = GetCommandText(command.GetCommand("Left"));
+        displayUI.rightKey.text = GetCommandText(command.GetCommand("Right"));
+        displayUI.jumpKey.text = GetCommandText(command.GetCommand("Jump"));
+        displayUI.attackKey.text = GetCommandText(command.GetCommand("Attack"));
+    }
+
+    string GetCommandText(KeyCode keyCode)
+    {
+        switch (keyCode)
+        {
+            case KeyCode.LeftArrow: 
+                return "Left";
+            case KeyCode.RightArrow:
+                return "Right";
+            case KeyCode.UpArrow:
+                return "Up";
+            case KeyCode.DownArrow:
+                return "Down";
+            case KeyCode.None: 
+                return "---";
+            default: 
+                return keyCode.ToString();
+        }
     }
 }
